@@ -76,43 +76,17 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>カテゴリーA</td>
+                          <tr th:each="category : ${listCategories}">
+                            <th scope="row" th:text="${category.id}"></th>
+                            <td th:text="${category.name}"></td>
                             <td>
-                              <a class="btn btn-primary btn-sm m-1" href="#">詳細</a>
+                              <a class="btn btn-primary btn-sm m-1" th:href="@{/categories/detail/{id}(id=${category.id})}">詳細</a>
                             </td>
                             <td>
-                              <a class="btn btn-success btn-sm m-1" href="#">編集</a>
+                              <a class="btn btn-success btn-sm m-1" th:href="@{/categories/edit/{id}(id=${category.id})}">編集</a>
                             </td>
                             <td>
-                              <a class="btn btn-danger btn-sm m-1 link-delete" href="#">削除</a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>カテゴリーB</td>
-                            <td>
-                              <a class="btn btn-primary btn-sm m-1" href="#">詳細</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-success btn-sm m-1" href="#">編集</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-danger btn-sm m-1 link-delete" href="#">削除</a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>カテゴリーC</td>
-                            <td>
-                              <a class="btn btn-primary btn-sm m-1" href="#">詳細</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-success btn-sm m-1" href="#">編集</a>
-                            </td>
-                            <td>
-                              <a class="btn btn-danger btn-sm m-1 link-delete" href="#">削除</a>
+                              <a class="btn btn-danger btn-sm m-1 link-delete" th:href="@{/categories/delete/{id}(id=${category.id})}">削除</a>
                             </td>
                           </tr>
                         </tbody>
