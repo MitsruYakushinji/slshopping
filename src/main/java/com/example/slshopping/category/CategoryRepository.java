@@ -11,6 +11,8 @@ import com.example.slshopping.entity.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
+    public Category findByName(String name);
+
     @Query("SELECT c FROM Category c WHERE c.name LIKE %?1%")
     public List<Category> search(String keyword);
 }
